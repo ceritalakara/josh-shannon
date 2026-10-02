@@ -1,0 +1,10 @@
+{
+  "name": "josh-and-shannon-wedding",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shannon and Josh's Wedding Invitation Web App",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}

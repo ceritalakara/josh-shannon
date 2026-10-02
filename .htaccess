@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteRule ^$ /day/ [R=302,L]
+
+# HTML & dynamic payloads: Always revalidate (no-cache)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html?|txt|json)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Versioned static assets: Long-term immutable caching
+  <FilesMatch "\.(css|js|png|jpg|jpeg|webp|svg|woff|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
